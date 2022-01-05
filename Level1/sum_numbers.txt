@@ -1,0 +1,30 @@
+package ArrayPractice;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class practice {
+
+	public static void main(String[] args) {
+		// 중복없이 넣기 위해 ArrayList 사용
+		ArrayList<Integer> arr = new ArrayList<>();
+		int[] numbers = {2, 1, 3, 4, 1};
+		int size = numbers.length;
+		int sum;
+		
+		for(int i = 0; i < size - 1; i++) {
+			for(int j = i + 1; j < size; j++) {
+				sum = numbers[i] + numbers[j];
+				// List에 있는지 확인 : 없으면 -1 리턴 
+				if(arr.indexOf(sum) < 0)
+					arr.add(sum);
+			}
+		}
+		
+		int[] answer = new int[arr.size()];
+		for(int i = 0; i < answer.length; i++)
+			// 배열에 넣기
+			answer[i] = arr.get(i);
+		Arrays.sort(answer);
+	}
+}
