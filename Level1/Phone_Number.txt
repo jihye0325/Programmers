@@ -1,0 +1,13 @@
+    public String solution(String phone_number) {
+        String secretN = "";
+		String publicN = "";
+		int length = phone_number.length();
+		
+		// 뒤에 4글자 
+		publicN = phone_number.substring(length - 4, length);
+		// 뒤에 4글자 빼고 자른 후, 전부 *로 바꾸기
+		secretN = phone_number.substring(0, length - 4).replaceAll(".", "*");
+    // 글자 합치기
+		String answer = secretN.concat(publicN);
+        return answer;
+    }
