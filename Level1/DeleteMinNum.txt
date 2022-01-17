@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+    public int[] solution(int[] arr) {
+        int[] answer = {};
+        // 최소값 구하기
+		int min = arr[0];		
+		for(int i = 0; i < arr.length; i++) {
+			if(min > arr[i])
+				min = arr[i];
+		}
+		
+		// 최소값을 제외한 요소들만 list에 추가
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		for(Integer a : arr) {
+			if(min != a)
+				list.add(a);
+		}
+		
+		// 사이즈에 따라 두가지 경우로 나누어 배열에 값을 저장
+		if(list.size() == 0) {
+			answer = new int[1];
+			answer[0] = -1;
+		} else {
+			answer = new int[list.size()];
+			for(int i = 0; i < list.size(); i++) {
+				answer[i] = list.get(i);
+			}
+		}
+        return answer;
+    }
