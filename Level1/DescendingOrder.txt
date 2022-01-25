@@ -1,0 +1,22 @@
+public static void main(String[] args) {
+        int n = 118372;
+        long answer = 0;
+        ArrayList<Integer> list = new ArrayList<>();
+        
+        // 각 자릿수를 list에 넣는다.
+        while(n >= 10) {
+            list.add((int)(n % 10));
+            n /= 10;
+        }
+        
+        list.add((int)n);
+        
+        // 작은 수부터 큰 수 순서로  정렬 
+        Collections.sort(list);
+        
+        // 제일 작은 수는 10의 0제곱을 곱하고 그 다음은 10의 1제곱을 곱해주고 다 더해준다.
+        for(int i = 0; i < list.size(); i++) {
+            answer += list.get(i) * Math.pow(10, i);
+        }
+        System.out.println(answer);
+}
